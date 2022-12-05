@@ -3,7 +3,9 @@
 
 ## Project Overview
 
-I will be recreating monopoly and the goal is the add as many features from the original game as possible in a 3 week time frame.
+I will be recreating monopoly and the goal is the add as many features from the original game as possible in a 3 week time frame. I plan to represent the game board in multiple divs to get the structure down and use conditionals for the functions.
+If time allows, I would also like to add some animations and more visual aspects at the end possibly using greensock.
+
 
 ## Functionality
 
