@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+
+    <title>Vue 3.0</title>
+</head>
+<body>
+    {% csrf_token %}
+    <div id="app">
+    <div id="gamearea">
+    <div id="gameboard">
+        {{player1.turn}}
+        {{player2.turn}}
+        <h1>{{player2.diceroll}}</h1>
+        <div id="startaxis">
+        <div id="gospace">
+            <h1>Go!</h1>
+            <div v-if="player2.location === 0">
+                <h2 id="playercolor">{{player2.name}}</h2>
+            </div>
+            <div v-if="player1.location ===  0">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+
+        </div>
+        <div id="space15">
+            <p>cost: {{board[15].price}}</p>
+            <p>owner: {{board[15].owner}}</p>
+   
+            <div v-if="player2.location === 15">
+                <h2 id="playercolor">{{player2.name}}</h2>
+            </div>
+            <div v-if="player1.location === 15">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+        </div>
+        <div id="space14">
+            <p>cost: {{board[14].price}}</p>
+            <p>owner: {{board[14].owner}}</p>
+   
+            <div v-if="player2.location === 14">
+                <h2 id="playercolor">{{player2.name}}</h2>
+            </div>
+            <div v-if="player1.location === 14">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+        </div>
+        <div id="space13">
+            <p>cost: {{board[13].price}}</p>
+            <p>owner: {{board[13].owner}}</p>
+   
+            <div v-if="player2.location === 13">
+                <h2 id="playercolor">{{player2.name}}</h2>
+            </div>
+            <div v-if="player1.location === 13">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+        </div>
+        <div id="space12">
+            <p>cost: {{board[12].price}}</p>
+            <p>owner: {{board[12].owner}}</p>
+   
+            <div v-if="player2.location === 12">
+                <h2 id="playercolor">{{player2.name}}</h2>
+            </div>
+            <div v-if="player1.location === 12">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+        </div>
+        <div id="bankspace">
+            <h1 id="playercolor">{{player1.name}}:{{player1.bank}}</h1>
+            <h1 id="playercolor">{{player2.name}}:{{player2.bank}}</h1>
+            <div v-if="player2.turn > 1 && player2.gocollection === true">
+                <button @click="collectP2GoMoney()">Collect Go Money! [50$]</button>
+            </div>
+            <div v-if="player1.turn > 1 && player1.gocollection === true">
+                <button @click="collectP1GoMoney()">Collect Go Money! [50$]</button>
+            </div>
+        </div>
+
+        </div>
+
+            
+            <div id="axisone">
+            <div id="space1">
+                <p>cost: {{board[1].price}}</p>
+                <p>owner: {{board[1].owner}}</p>
+       
+                <div v-if="player2.location === 1">
+                    <h2 id="playercolor">{{player2.name}}</h2>
+                </div>
+                <div v-if="player1.location === 1">
+                    <h2 id="playercolor">{{player1.name}}</h2>
+                </div>
+            </div>
+            <div id="space11">
+                <p>cost: {{board[11].price}}</p>
+                <p>owner: {{board[11].owner}}</p>
+       
+                <div v-if="player2.location === 11">
+                    <h2 id="playercolor">{{player2.name}}</h2>
+                </div>
+                <div v-if="player1.location === 11">
+                    <h2 id="playercolor">{{player1.name}}</h2>
+                </div>
+            </div>
+            </div>
+            
+            <div id="messagearea">
+                <div v-if="player2.playerTurn === true">
+                    <h2>{{player2.name}}, This property is unowned. Would you like to buy?</h2>
+                    
+                </div>
+                <div v-if="player1.playerTurn === true">
+                    <h2>{{player1.name}}, This property is unowned. Would you like to buy?</h2>
+                </div>
+                <div>
+                    <button @click="buy()">Buy Property</button>
+                </div>
+                <h1>{{this.errorMessage}}</h1>
+            </div>
+            <div id="axistwo">
+                
+            <div id="space2">
+                <p>cost: {{board[2].price}}</p>
+                <p>owner: {{board[2].owner}}</p>
+             
+                <div v-if="player2.location === 2">
+                    <h2 id="playercolor">{{player2.name}}</h2>
+                </div>
+                <div v-if="player1.location === 2">
+                    <h2 id="playercolor">{{player1.name}}</h2>
+                </div>
+            </div>
+                <div v-if = "player2.diceroll > 0 && player2.playerTurn === true">
+                    <h1 id="playercolor">You rolled a {{player2.diceroll}}!</h1>
+                </div>
+                <div v-if = "player1.diceroll > 0 && player1.playerTurn === true">
+                    <h1 id="playercolor">You rolled a {{player1.diceroll}}!</h1>
+                </div>
+            <div id="space10">
+                <p>cost: {{board[10].price}}</p>
+                <p>owner: {{board[10].owner}}</p>
+             
+                <div v-if="player2.location === 10">
+                    <h2 id="playercolor">{{player2.name}}</h2>
+                </div>
+                <div v-if="player1.location === 10">
+                    <h2 id="playercolor">{{player1.name}}</h2>
+                </div>
+            </div>
+            </div>
+
+        
+            <div id="axisthree">
+            <div id="space3">
+                <p>cost: {{board[3].price}}</p>
+                <p>owner: {{board[3].owner}}</p>
+          
+                <div v-if="player2.location === 3">
+                    <h2 id="playercolor">{{player2.name}}</h2>
+                </div>
+                <div v-if="player1.location === 3">
+                    <h2 id="playercolor">{{player1.name}}</h2>
+                </div>
+            </div>
+            <div id="space9">
+                <p>cost: {{board[9].price}}</p>
+                <p>owner: {{board[9].owner}}</p>
+          
+                <div v-if="player2.location === 9">
+                    <h2 id="playercolor">{{player2.name}}</h2>
+                </div>
+                <div v-if="player1.location === 9">
+                    <h2 id="playercolor">{{player1.name}}</h2>
+                </div>
+            </div>
+            </div>
+    <div id="axisfour">
+        <div id="space4">
+                <p>cost: {{board[4].price}}</p>
+                <p>owner: {{board[4].owner}}</p>
+            <div v-if="player2.location === 4">
+                <h2 id="playercolor">{{player2.name}}</h2>
+            </div>
+            <div v-if="player1.location === 4">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+        </div>
+        <div id="space5">
+                <p>cost: {{board[5].price}}</p>
+                <p>owner: {{board[5].owner}}</p>
+            <div v-if="player2.location === 5">
+                {{player2.name}}
+            </div>
+            <div v-if="player1.location === 5">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+        </div>
+        <div id="space6">
+                <p>cost: {{board[6].price}}</p>
+                <p>owner: {{board[6].owner}}</p>
+            <div v-if="player2.location === 6">
+                <h2 id="playercolor">{{player2.name}}</h2>
+            </div>
+            <div v-if="player1.location === 6">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+        </div>
+        <div id="space7">
+                <p>cost: {{board[7].price}}</p>
+                <p>owner: {{board[7].owner}}</p>
+            <div v-if="player2.location === 7">
+                <h2 id="playercolor">{{player2.name}}</h2>
+            </div>
+            <div v-if="player1.location === 7">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+        </div>
+        <div id="space8">
+                <p>cost: {{board[8].price}}</p>
+                <p>owner: {{board[8].owner}}</p>
+            <div v-if="player2.location === 8">
+                <h2 id="playercolor">{{player2.name}}</h2>
+            </div>
+            <div v-if="player1.location === 8">
+                <h2 id="playercolor">{{player1.name}}</h2>
+            </div>
+        </div>
+        </div>
+            <button @click="movePlayerTwo">P2 Roll Dice!</button>
+            <button @click="movePlayerOne">P1 Roll Dice!</button>
+
+        
+    
+    </div>
+    </div>
+    
+    </div>
+
+
+   
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="{% static '/main.js' %}"></script>
+
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+</body>
+</html>
