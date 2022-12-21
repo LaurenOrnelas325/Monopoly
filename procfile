@@ -1,2 +1,2 @@
-web: gunicorn Capstone.wsgi
-release: python manage.py migrate
+web: cd monopolyproject && gunicorn monopolyproject.wsgi
+release: cd monopolyproject && python manage.py migrate
