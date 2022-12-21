@@ -5,241 +5,642 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>Document</title>
 </head>
 <body>
     {% csrf_token %}
     <div id="app">
-        <div id="gamearea">
+        <a href="{% url 'monopolyapp:profile_view' %}">Scores</a>
+        <div id="login">
+            {% if user.is_authenticated %}
+    
+            <a href="{% url 'logout' %}">Logout</a>
+
+            {% else %}
+            <a href="{% url 'signup' %}">Signup</a>
+            <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+    
+        </div>
             <div id="gameboard">
-                {{player1.turn}}
-                {{player2.turn}}
-                <h1>{{player2.diceroll}}</h1>
+        
                 <div id="startaxis">
                     <div id="gospace">
                         <h1>Go!</h1>
                         <div v-if="player2.location === 0">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                            <h1 id="playercolor">[[player2.name]]</h1>
                         </div>
                         <div v-if="player1.location ===  0">
-                            <h2 id="playercolor">{{player1.name}}</h2>
+                            <h1 id="playercolor">[[player1.name]]</h1>
                         </div>
             
                     </div>
-                    <div id="space15">
-                        <!-- <p>cost: {{board[15].price}}</p> -->
-                        <p>owner: {{board[15].owner}}</p>
+                    <div id="space31">
+                        <h2>[[board[31].spacename]]</h2>
+                        <p>[[board[31].owner]]</p>
+                    <div v-if="board[31].houses > 0 && board[31].hotel != 1">
+                        <h1>Houses: [[board[31].houses]]</h2>
+                    </div>
+                    <div v-if="board[31].hotel > 0">
+                        <h1>Hotel: [[board[31].hotel]]</h2>
+                    </div>
+                        <div v-if="player2.location === 31">
+                            <h2 id="playercolor">[[player2.name]]</h2>
+                        </div>
+                        <div v-if="player1.location === 31">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                   </div>  
+                    </div>
+                    <div id="space30">
+                        <h2>[[board[30].spacename]]</h2>
+                        <p>[[board[30].owner]]</p>
+                        <div v-if="player2.location === 30">
+                            <h2 id="playercolor">[[player2.name]]</h2>
+                        </div>
+                        <div v-if="player1.location === 30">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                        </div>  
+                    </div>
+                    <div id="space29">
+                        <h2>[[board[29].spacename]]</h2>
+                        <p>[[board[29].owner]]</p>
+                        <div v-if="board[29].houses > 0 && board[29].hotel != 1">
+                            <h1>Houses: [[board[29].houses]]</h2>
+                        </div>
+                        <div v-if="board[29].hotel > 0">
+                            <h1>Hotel: [[board[29].hotel]]</h2>
+                        </div>
             
-                        <div v-if="player2.location === 15">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                        <div v-if="player2.location === 29">
+                            <h2 id="playercolor">[[player2.name]]</h2>
                         </div>
-                        <div v-if="player1.location === 15">
-                            <h2 id="playercolor">{{player1.name}}</h2>
-                        </div>
+                        <div v-if="player1.location === 29">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                            
+                        </div>  
                     </div>
-                    <div id="space14">
-                        <p>cost: {{board[14].price}}</p>
-                        <p>owner: {{board[14].owner}}</p>
+                    <div id="space28">
+                        <h2>[[board[28].spacename]]</h2>
+                        <p>[[board[28].owner]]</p>
+                        <div v-if="board[28].houses > 0 && board[28].hotel != 1">
+                            <h1>Houses: [[board[28].houses]]</h2>
+                        </div>
+                        <div v-if="board[28].hotel > 0">
+                            <h1>Hotel: [[board[28].hotel]]</h2>
+                        </div>
             
-                        <div v-if="player2.location === 14">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                        <div v-if="player2.location === 28">
+                            <h2 id="playercolor">[[player2.name]]</h2>
                         </div>
-                        <div v-if="player1.location === 14">
-                            <h2 id="playercolor">{{player1.name}}</h2>
-                        </div>
+                        <div v-if="player1.location === 28">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                        </div>  
                     </div>
-                    <div id="space13">
-                        <p>cost: {{board[13].price}}</p>
-                        <p>owner: {{board[13].owner}}</p>
+                    <div id="space27">
+                        <h2>[[board[27].spacename]]</h2>
+                        <p>[[board[27].owner]]</p>
+                        <div v-if="board[27].houses > 0 && board[27].hotel != 1">
+                            <h1>Houses: [[board[27].houses]]</h2>
+                        </div>
+                        <div v-if="board[27].hotel > 0">
+                            <h1>Hotel: [[board[27].hotel]]</h2>
+                        </div>
             
-                        <div v-if="player2.location === 13">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                        <div v-if="player2.location === 27">
+                            <h2 id="playercolor">[[player2.name]]</h2>
                         </div>
-                        <div v-if="player1.location === 13">
-                            <h2 id="playercolor">{{player1.name}}</h2>
+                        <div v-if="player1.location === 27">
+                            <h2 id="playercolor">[[player1.name]]</h2>
                         </div>
                     </div>
-                    <div id="space12">
-                        <p>cost: {{board[12].price}}</p>
-                        <p>owner: {{board[12].owner}}</p>
+                    <div id="space26">
+                        <h2>[[board[26].spacename]]</h2>
+                        <p>[[board[26].owner]]</p>
+                        <div v-if="board[26].houses > 0 && board[26].hotel != 1">
+                            <h1>Houses: [[board[26].houses]]</h2>
+                        </div>
+                        <div v-if="board[26].hotel > 0">
+                            <h1>Hotel: [[board[26].hotel]]</h2>
+                        </div>
+                        <div v-if="player2.location === 26">
+                            <h2 id="playercolor">[[player2.name]]</h2>
+                        </div>
+                        <div v-if="player1.location === 26">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                        </div>
+                    </div>
+                    <div id="space25">
+                        <h2>[[board[25].spacename]]</h2>
+                        <p>[[board[25].owner]]</p>
+                        <div v-if="board[25].houses > 0 && board[25].hotel != 1">
+                            <h1>Houses: [[board[25].houses]]</h2>
+                        </div>
+                        <div v-if="board[25].hotel > 0">
+                            <h1>Hotel: [[board[25].hotel]]</h2>
+                        </div>
             
-                        <div v-if="player2.location === 12">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                        <div v-if="player2.location === 25">
+                            <h2 id="playercolor">[[player2.name]]</h2>
                         </div>
-                        <div v-if="player1.location === 12">
-                            <h2 id="playercolor">{{player1.name}}</h2>
-                        </div>
-                    </div>
-                    <div id="bankspace">
-                        <h1 id="playercolor">{{player1.name}}:{{player1.bank}}</h1>
-                        <h1 id="playercolor">{{player2.name}}:{{player2.bank}}</h1>
-                        <div v-if="player2.turn > 1 && player2.gocollection === true">
-                            <button @click="collectP2GoMoney()">Collect Go Money! [50$]</button>
-                        </div>
-                        <div v-if="player1.turn > 1 && player1.gocollection === true">
-                            <button @click="collectP1GoMoney()">Collect Go Money! [50$]</button>
+                        <div v-if="player1.location === 25">
+                            <h2 id="playercolor">[[player1.name]]</h2>
                         </div>
                     </div>
+                    <div id="space24">
+                        <h2>[[board[24].spacename]]</h2>
+                        <p>[[board[24].owner]]</p>
+                        <div v-if="board[24].houses > 0 && board[24].hotel != 1">
+                            <h1>Houses: [[board[24].houses]]</h2>
+                        </div>
+                        <div v-if="board[24].hotel > 0">
+                            <h1>Hotel: [[board[24].hotel]]</h2>
+                        </div>
+                        <div v-if="player2.location === 24">
+                            <h2 id="playercolor">[[player2.name]]</h2>
+                        </div>
+                        <div v-if="player1.location === 24">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                        </div>
+                    </div>
+
             
                 </div>
         
                     
                     <div id="axisone">
-                    <div id="space1">
-                        <p>cost: {{board[1].price}}</p>
-                        <p>owner: {{board[1].owner}}</p>
+                    <div id="space1" class="space1color">
+                        <h2>[[board[1].spacename]]</h2>
+                        <p>[[board[1].owner]]</p>
+                        <div v-if="board[1].houses > 0 && board[1].hotel != 1">
+                            <h1>Houses: [[board[1].houses]]</h2>
+                        </div>
+                        <div v-if="board[1].hotel > 0">
+                            <h1>Hotel: [[board[1].hotel]]</h2>
+                        </div>
                
                         <div v-if="player2.location === 1">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                            <h2 id="playercolor">[[player2.name]]</h2>
                         </div>
                         <div v-if="player1.location === 1">
-                            <h2 id="playercolor">{{player1.name}}</h2>
+                            <h2 id="playercolor">[[player1.name]]</h2>
                         </div>
                     </div>
-                    <div id="space11">
-                        <p>cost: {{board[11].price}}</p>
-                        <p>owner: {{board[11].owner}}</p>
+                    <div v-if = "player2.diceroll > 0 && player2.playerTurn === true">
+                        <h1 id="dicerollmessage">You rolled a [[player2.diceroll]]!</h1>
+                    </div>
+                    <div v-if = "player1.diceroll > 0 && player1.playerTurn === true">
+                        <h1 id="dicerollmessage">You rolled a [[player1.diceroll]]!</h1>
+                    </div>
+                    <div id="space23">
+                        <h2>[[board[23].spacename]]</h2>
+                        <p>[[board[23].owner]]</p>
+                        <div v-if="board[23].houses > 0 && board[23].hotel != 1">
+                            <h1>Houses: [[board[23].houses]]</h2>
+                        </div>
+                        <div v-if="board[23].hotel > 0">
+                            <h1>Hotel: [[board[23].hotel]]</h2>
+                        </div>
                
-                        <div v-if="player2.location === 11">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                        <div v-if="player2.location === 23">
+                            <h2 id="playercolor">[[player2.name]]</h2>
                         </div>
-                        <div v-if="player1.location === 11">
-                            <h2 id="playercolor">{{player1.name}}</h2>
+                        <div v-if="player1.location === 23">
+                            <h2 id="playercolor">[[player1.name]]</h2>
                         </div>
                     </div>
-                    </div>
-                    
-                    <div id="messagearea">
-                        <div v-if="player2.playerTurn === true">
-                            <h2>{{player2.name}}, This property is unowned. Would you like to buy?</h2>
-                            
-                        </div>
-                        <div v-if="player1.playerTurn === true">
-                            <h2>{{player1.name}}, This property is unowned. Would you like to buy?</h2>
-                        </div>
-                        <div>
-                            <button @click="buy()">Buy Property</button>
-                        </div>
-                        <h1>{{this.errorMessage}}</h1>
                     </div>
                     <div id="axistwo">
                         
-                    <div id="space2">
-                        <p>cost: {{board[2].price}}</p>
-                        <p>owner: {{board[2].owner}}</p>
+                    <div id="space2" class="space2color">
+                        <h2>[[board[2].spacename]]</h2>
+                        <p>[[board[2].owner]]</p>
+                        <div v-if="board[2].houses > 0 && board[2].hotel != 1">
+                            <h1>Houses: [[board[2].houses]]</h2>
+                        </div>
+                        <div v-if="board[2].hotel > 0">
+                            <h1>Hotel: [[board[2].hotel]]</h2>
+                        </div>
                      
                         <div v-if="player2.location === 2">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                            <h2 id="playercolor">[[player2.name]]</h2>
                         </div>
                         <div v-if="player1.location === 2">
-                            <h2 id="playercolor">{{player1.name}}</h2>
+                            <h2 id="playercolor">[[player1.name]]</h2>
                         </div>
                     </div>
-                        <div v-if = "player2.diceroll > 0 && player2.playerTurn === true">
-                            <h1 id="playercolor">You rolled a {{player2.diceroll}}!</h1>
+                        <img id="logo" src="https://www.ballerstatus.com/wp-content/uploads/2014/03/2014-03-26-monop.jpg">
+                    <div id="space22">
+                        <h2>[[board[22].spacename]]</h2>
+                        <p>[[board[22].owner]]</p>
+                        <div v-if="board[22].houses > 0 && board[22].hotel != 1">
+                            <h1>Houses: [[board[22].houses]]</h2>
                         </div>
-                        <div v-if = "player1.diceroll > 0 && player1.playerTurn === true">
-                            <h1 id="playercolor">You rolled a {{player1.diceroll}}!</h1>
+                        <div v-if="board[22].hotel > 0">
+                            <h1>Hotel: [[board[22].hotel]]</h2>
                         </div>
-                    <div id="space10">
-                        <p>cost: {{board[10].price}}</p>
-                        <p>owner: {{board[10].owner}}</p>
                      
-                        <div v-if="player2.location === 10">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                        <div v-if="player2.location === 22">
+                            <h2 id="playercolor">[[player2.name]]</h2>
                         </div>
-                        <div v-if="player1.location === 10">
-                            <h2 id="playercolor">{{player1.name}}</h2>
+                        <div v-if="player1.location === 22">
+                            <h2 id="playercolor">[[player1.name]]</h2>
                         </div>
                     </div>
                     </div>
         
                 
                     <div id="axisthree">
-                    <div id="space3">
-                        <p>cost: {{board[3].price}}</p>
-                        <p>owner: {{board[3].owner}}</p>
+                    <div id="space3" class="space3color">
+                        <h2>[[board[3].spacename]]</h2>
+                        <p>[[board[3].owner]]</p>
+                        <div v-if="board[3].houses > 0 && board[3].hotel != 1">
+                            <h1>Houses: [[board[3].houses]]</h2>
+                        </div>
+                        <div v-if="board[3].hotel > 0">
+                            <h1>Hotel: [[board[3].hotel]]</h2>
+                        </div>
                   
                         <div v-if="player2.location === 3">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                            <h2 id="playercolor">[[player2.name]]</h2>
                         </div>
                         <div v-if="player1.location === 3">
-                            <h2 id="playercolor">{{player1.name}}</h2>
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                        </div>
+                    </div>
+                    <div id="space21">
+                        <h2>[[board[21].spacename]]</h2>
+                        <p>[[board[21].owner]]</p>
+                        <div v-if="board[21].houses > 0 && board[21].hotel != 1">
+                            <h1>Houses: [[board[21].houses]]</h2>
+                        </div>
+                        <div v-if="board[21].hotel > 0">
+                            <h1>Hotel: [[board[21].hotel]]</h2>
+                        </div>
+                  
+                        <div v-if="player2.location === 21">
+                            <h2 id="playercolor">[[player2.name]]</h2>
+                        </div>
+                        <div v-if="player1.location === 21">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                        </div>
+                    </div>
+                    </div>
+                    <div id="axisfour">
+                        <div id="space4">
+                            <h2>[[board[4].spacename]]</h2>
+                            <p>[[board[4].owner]]</p>
+                            <div v-if="board[4].houses > 0 && board[4].hotel != 1">
+                                <h1>Houses: [[board[4].houses]]</h2>
+                            </div>
+                            <div v-if="board[4].hotel > 0">
+                                <h1>Hotel: [[board[4].hotel]]</h2>
+                            </div>
+                      
+                            <div v-if="player2.location === 4">
+                                <h2 id="playercolor">[[player2.name]]</h2>
+                            </div>
+                            <div v-if="player1.location === 4">
+                                <h2 id="playercolor">[[player1.name]]</h2>
+                            </div>
+                        </div>
+                        <div id="space20">
+                            <h2>[[board[20].spacename]]</h2>
+                            <p>[[board[20].owner]]</p>
+                            <div v-if="board[20].houses > 0 && board[20].hotel != 1">
+                                <h1>Houses: [[board[20].houses]]</h2>
+                            </div>
+                            <div v-if="board[20].hotel > 0">
+                                <h1>Hotel: [[board[20].hotel]]</h2>
+                            </div>
+
+                            <div v-if="player2.location === 20">
+                                <h2 id="playercolor">[[player2.name]]</h2>
+                            </div>
+                            <div v-if="player1.location === 20">
+                                <h2 id="playercolor">[[player1.name]]</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="axisfive">
+                        <div id="space5">
+                            <h2>[[board[5].spacename]]</h2>
+                            <p>[[board[5].owner]]</p>
+                            <div v-if="board[5].houses > 0 && board[5].hotel != 1">
+                                <h1>Houses: [[board[5].houses]]</h2>
+                            </div>
+                            <div v-if="board[5].hotel > 0">
+                                <h1>Hotel: [[board[5].hotel]]</h2>
+                            </div>
+                      
+                            <div v-if="player2.location === 5">
+                                <h2 id="playercolor">[[player2.name]]</h2>
+                            </div>
+                            <div v-if="player1.location === 5">
+                                <h2 id="playercolor">[[player1.name]]</h2>
+                            </div>
+                        </div>
+                        <div id="messagearea">
+                            <div v-if="player2.playerTurn === true">
+                                <h1>[[buymessage]]</h1>
+                                <h1>[[rentmessage]]</h1>
+                                <h1>[[monopolyMessage]]</h1>
+                                <h2>[[nextplayermessage]]</h2>
+                                <h1>[[monopolyerror]]</h1>
+                                <h1>[[hotelError]]</h1>
+                                
+
+                                
+                            </div>
+                            <div v-if="player1.playerTurn === true">
+                                <h1>[[buymessage]]</h1>
+                                <h1>[[rentmessage]]</h1>
+                                <h1>[[monopolyMessage]]</h1>
+                                <h2>[[nextplayermessage]]</h2>
+                                <h1>[[monopolyerror]]</h1>
+                                <h1>[[hotelError]]</h1>
+                                <h1>[[gameovermessage]]</h1>
+                                
+                            </div>
+                            <div>
+                                <button id="buybutton" @click="buy()">Buy Property</button>
+                            </div>
+                            
+                        </div> 
+                        <div id="space19">
+                            <h2>[[board[19].spacename]]<h2>
+                            <p>[[board[19].owner]]</p>
+                            <div v-if="board[19].houses > 0 && board[19].hotel != 1">
+                                <h1>Houses: [[board[19].houses]]</h2>
+                            </div>
+                            <div v-if="board[19].hotel > 0">
+                                <h1>Hotel: [[board[19].hotel]]</h2>
+                            </div>
+                      
+                            <div v-if="player2.location === 19">
+                                <h2 id="playercolor">[[player2.name]]</h2>
+                            </div>
+                            <div v-if="player1.location === 19">
+                                <h2 id="playercolor">[[player1.name]]</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="axissix">
+                        <div id="space6">
+                            <h2>[[board[6].spacename]]</h2>
+                            <p>[[board[6].owner]]</p>
+                            <div v-if="board[6].houses > 0 && board[6].hotel != 1">
+                                <h1>Houses: [[board[6].houses]]</h2>
+                            </div>
+                            <div v-if="board[6].hotel > 0">
+                                <h1>Hotel: [[board[6].hotel]]</h2>
+                            </div>
+                      
+                            <div v-if="player2.location === 6">
+                                <h2 id="playercolor">[[player2.name]]</h2>
+                            </div>
+                            <div v-if="player1.location === 6">
+                                <h2 id="playercolor">[[player1.name]]</h2>
+                            </div>
+                        </div>
+                        <div id="space18">
+                            <h2>[[board[18].spacename]]</h2>
+                            <p>[[board[18].owner]]</p>
+                            <div v-if="board[18].houses > 0 && board[18].hotel != 1">
+                                <h1>Houses: [[board[18].houses]]</h2>
+                            </div>
+                            <div v-if="board[18].hotel > 0">
+                                <h1>Hotel: [[board[18].hotel]]</h2>
+                            </div>
+        
+                      
+                            <div v-if="player2.location === 18">
+                                <h2 id="playercolor">[[player2.name]]</h2>
+                            </div>
+                            <div v-if="player1.location === 18">
+                                <h2 id="playercolor">[[player1.name]]</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="axisseven">
+                        <div id="space7">
+                            <h2>[[board[7].spacename]]</h2>
+                            <p>[[board[7].owner]]</p>
+                            <div v-if="board[7].houses > 0 && board[7].hotel != 1">
+                                <h1>Houses: [[board[7].houses]]</h2>
+                            </div>
+                            <div v-if="board[7].hotel > 0">
+                                <h1>Hotel: [[board[7].hotel]]</h2>
+                            </div>
+                            
+                      
+                            <div v-if="player2.location === 7">
+                                <h2 id="playercolor">[[player2.name]]</h2>
+                            </div>
+                            <div v-if="player1.location === 7">
+                                <h2 id="playercolor">[[player1.name]]</h2>
+                            </div>
+                        </div>
+                        <button class="p2movebutton" @click="movePlayerTwo">Player 2 roll dice!</button>
+                        <button class="p1movebutton" @click="movePlayerOne">Player 1 roll dice!</button>
+
+                        <div id="space17">
+                            <h2>[[board[17].spacename]]</h2>
+                            <p>[[board[17].owner]]</p>
+                            <div v-if="board[17].houses > 0 && board[17].hotel != 1">
+                                <h1>Houses: [[board[17].houses]]</h2>
+                            </div>
+                            <div v-if="board[17].hotel > 0">
+                                <h1>Hotel: [[board[17].hotel]]</h2>
+                            </div>
+                            
+                      
+                            <div v-if="player2.location === 17">
+                                <h2 id="playercolor">[[player2.name]]</h2>
+                            </div>
+                            <div v-if="player1.location === 17">
+                                <h2 id="playercolor">[[player1.name]]</h2>
+                            </div>
+                        </div>
+                    </div>
+                <div id="axiseight">
+                    <div id="space8">
+                        <h2>[[board[8].spacename]]</h2>
+                        <p>[[board[8].owner]]</p>
+                        <div v-if="board[8].houses > 0 && board[8].hotel != 1">
+                            <h1>Houses: [[board[8].houses]]</h2>
+                        </div>
+                        <div v-if="board[8].hotel > 0">
+                            <h1>Hotel: [[board[8].hotel]]</h2>
+                        </div>
+                        <div v-if="player2.location === 8">
+                            <h2 id="playercolor">[[player2.name]]</h2>
+                        </div>
+                        <div v-if="player1.location === 8">
+                            <h2 id="playercolor">[[player1.name]]</h2>
                         </div>
                     </div>
                     <div id="space9">
-                        <p>cost: {{board[9].price}}</p>
-                        <p>owner: {{board[9].owner}}</p>
-                  
+                        <h2>[[board[9].spacename]]</h2>
+                        <p>[[board[9].owner]]</p>
+                        <div v-if="board[9].houses > 0 && board[9].hotel != 1">
+                            <h1>Houses: [[board[9].houses]]</h2>
+                        </div>
+                        <div v-if="board[9].hotel > 0">
+                            <h1>Hotel: [[board[9].hotel]]</h2>
+                        </div>
+                           
                         <div v-if="player2.location === 9">
-                            <h2 id="playercolor">{{player2.name}}</h2>
+                            [[player2.name]]
                         </div>
                         <div v-if="player1.location === 9">
-                            <h2 id="playercolor">{{player1.name}}</h2>
+                            <h2 id="playercolor">[[player1.name]]</h2>
                         </div>
                     </div>
+                    <div id="space10">
+                        <h2>[[board[10].spacename]]</h2>
+                        <p>[[board[10].owner]]</p>
+                        <div v-if="board[10].houses > 0 && board[10].hotel != 1">
+                            <h1>Houses: [[board[10].houses]]</h2>
+                        </div>
+                        <div v-if="board[10].hotel > 0">
+                            <h1>Hotel: [[board[10].hotel]]</h2>
+                        </div>
+                           
+                        <div v-if="player2.location === 10">
+                            <h2 id="playercolor">[[player2.name]]</h2>
+                        </div>
+                        <div v-if="player1.location === 10">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                        </div>
                     </div>
-            <div id="axisfour">
-                <div id="space4">
-                        <p>cost: {{board[4].price}}</p>
-                        <p>owner: {{board[4].owner}}</p>
-                    <div v-if="player2.location === 4">
-                        <h2 id="playercolor">{{player2.name}}</h2>
+                    <div id="space11">
+                        <h2>[[board[11].spacename]]</h2>
+                        <p>[[board[11].owner]]</p>
+                        <div v-if="board[11].houses > 0 && board[11].hotel != 1">
+                            <h1>Houses: [[board[11].houses]]</h2>
+                        </div>
+                        <div v-if="board[11].hotel > 0">
+                            <h1>Hotel: [[board[11].hotel]]</h2>
+                        </div>
+                           
+                        <div v-if="player2.location === 11">
+                            <h2 id="playercolor">[[player2.name]]</h2>
+                        </div>
+                        <div v-if="player1.location === 11">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                        </div>
                     </div>
-                    <div v-if="player1.location === 4">
-                        <h2 id="playercolor">{{player1.name}}</h2>
+                    <div id="space12">
+                        <h2>[[board[12].spacename]]</h2>
+                        <div v-if="player2.location === 12">
+                            <h2 id="playercolor">[[player2.name]]</h2>
+                        </div>
+                        <div v-if="player1.location === 12">
+                            <h2 id="playercolor">[[player1.name]]</h2>
+                        </div>
+                    </div>
+                    <div id="space13">
+                        <h2>[[board[13].spacename]]</h2>
+                        <p>[[board[13].owner]]</p>
+                        <div v-if="board[13].houses > 0 && board[13].hotel != 1">
+                            <h1>Houses: [[board[13].houses]]</h2>
+                        </div>
+                        <div v-if="board[13].hotel > 0">
+                            <h1>Hotel: [[board[13].hotel]]</h2>
+                        </div>
+                        
+                    <div v-if="player2.location === 13">
+                        <h2 id="playercolor">[[player2.name]]</h2>
+                    </div>
+                    <div v-if="player1.location === 13">
+                        <h2 id="playercolor">[[player1.name]]</h2>
+                    </div>
+                    </div>
+                    <div id="space14">
+                        <h2>[[board[14].spacename]]</h2>
+                        <p>[[board[14].owner]]</p>
+                        <div v-if="board[14].houses > 0 && board[14].hotel != 1">
+                            <h1>Houses: [[board[14].houses]]</h2>
+                        </div>
+                        <div v-if="board[14].hotel > 0">
+                            <h1>Hotel: [[board[14].hotel]]</h2>
+                        </div>
+                        
+                    <div v-if="player2.location === 14">
+                        <h2 id="playercolor">[[player2.name]]</h2>
+                    </div>
+                    <div v-if="player1.location === 14">
+                        <h2 id="playercolor">[[player1.name]]</h2>
                     </div>
                 </div>
-                <div id="space5">
-                        <p>cost: {{board[5].price}}</p>
-                        <p>owner: {{board[5].owner}}</p>
-                    <div v-if="player2.location === 5">
-                        {{player2.name}}
+                <div id="space15">
+                    <h2>[[board[15].spacename]]</h2>
+                    <p>[[board[15].owner]]</p>
+                    <div v-if="board[15].houses > 0 && board[15].hotel != 1">
+                        <h1>Houses: [[board[15].houses]]</h2>
                     </div>
-                    <div v-if="player1.location === 5">
-                        <h2 id="playercolor">{{player1.name}}</h2>
+                    <div v-if="board[15].hotel > 0">
+                        <h1>Hotel: [[board[15].hotel]]</h2>
                     </div>
+                    
+                <div v-if="player2.location === 15">
+                    <h2 id="playercolor">[[player2.name]]</h2>
                 </div>
-                <div id="space6">
-                        <p>cost: {{board[6].price}}</p>
-                        <p>owner: {{board[6].owner}}</p>
-                    <div v-if="player2.location === 6">
-                        <h2 id="playercolor">{{player2.name}}</h2>
-                    </div>
-                    <div v-if="player1.location === 6">
-                        <h2 id="playercolor">{{player1.name}}</h2>
-                    </div>
-                </div>
-                <div id="space7">
-                        <p>cost: {{board[7].price}}</p>
-                        <p>owner: {{board[7].owner}}</p>
-                    <div v-if="player2.location === 7">
-                        <h2 id="playercolor">{{player2.name}}</h2>
-                    </div>
-                    <div v-if="player1.location === 7">
-                        <h2 id="playercolor">{{player1.name}}</h2>
-                    </div>
-                </div>
-                <div id="space8">
-                        <p>cost: {{board[8].price}}</p>
-                        <p>owner: {{board[8].owner}}</p>
-                    <div v-if="player2.location === 8">
-                        <h2 id="playercolor">{{player2.name}}</h2>
-                    </div>
-                    <div v-if="player1.location === 8">
-                        <h2 id="playercolor">{{player1.name}}</h2>
-                    </div>
+                <div v-if="player1.location === 15">
+                    <h2 id="playercolor">[[player1.name]]</h2>
                 </div>
                 </div>
-                    <button @click="movePlayerTwo">P2 Roll Dice!</button>
-                    <button @click="movePlayerOne">P1 Roll Dice!</button>
+                <div id="space16">
+                    <h2>[[board[16].spacename]]</h2>
+                    <p>[[board[16].owner]]</p>
+                    <div v-if="board[16].houses > 0 && board[16].hotel != 1">
+                        <h1>Houses: [[board[16].houses]]</h2>
+                    </div>
+                    <div v-if="board[16].hotel > 0">
+                        <h1>Hotel: [[board[16].hotel]]</h2>
+                    </div>
+                <div v-if="player2.location === 16">
+                    <h2 id="playercolor">[[player2.name]]</h2>
+                </div>
+                <div v-if="player1.location === 16">
+                    <h2 id="playercolor">[[player1.name]]</h2>
+                </div>
+                </div>
+
         
                 
             
-            </div>
-            </div>
             
             </div>
+
+            
+        </div>
+        <div id="infos">
+            <div id="bankspace">
+                <h1>BANK</h1>
+                <h1 id="playercolor">[[player1.name]]:[[player1.bank]]</h1>
+                <h1 id="playercolor">[[player2.name]]:[[player2.bank]]</h1>
+                <div v-if="player2.turn > 1 && player2.gocollection === true">
+                    <button @click="collectP2GoMoney()">Collect Go Money! [50$]</button>
+                </div>
+                <div v-if="player1.turn > 1 && player1.gocollection === true">
+                    <button @click="collectP1GoMoney()">Collect Go Money! [50$]</button>
+                </div>
+            </div>
+            
+            <div id="playerproperties2">
+                <h2>Player 2 properties</h2>
+                [[player2.properties]]
+            </div>
+            <div id="playerproperties1">
+                <h2>Player 1 properties</h2>
+                [[player1.properties]]
+            </div>
+            <button id="buyhouses" @click="buyhouses()">Buy house</button>
+            <button id="buyHotel" @click="buyHotel()">Buy hotel</button>
+            <button id="gameover" @click="displayScore()">display score</button>
+        </div>
 
     </div>
 

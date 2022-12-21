@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'monopolyapp'
+    
+    'rest_framework',
+    'monopolyapp.apps.MonopolyappConfig',
+    'api.apps.ApiConfig',
+    'usersapp.apps.UsersappConfig'
 ]
 
 MIDDLEWARE = [
@@ -124,5 +128,15 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'usersapp.CustomUser'
+
+LOGIN_REDIRECT_URL = 'monopolyapp:gamePage'
+LOGOUT_REDIRECT_URL = 'monopolyapp:gamePage'
+
+LOGIN_URL = 'login'
+
+import django_on_heroku
+django_on_heroku.settings(locals())
 
 

@@ -1,0 +1,470 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    background: rgb(220, 235, 203);
+    color:  black;
+    font-family: monospace;
+}
+
+#app{
+    display: flex;
+}
+
+#infos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 3rem;
+    height: 60rem;
+    
+}
+
+#logo{
+    height: 30rem;
+    /* width: 25rem; */
+}
+#playercolor{
+    color:  black;
+}
+#dicerollmessage{
+    font-size: 3rem;
+}
+.buybutton{
+    margin-top: 3rem;
+}
+.p2movebutton{
+    background: rgb(220, 235, 203);
+    height: 5rem;
+    width: 10rem;
+    border: 0.4rem black;
+    border-style: dotted;
+    font-size: larger;
+}
+.p2movebutton:hover{
+    background-color: rgb(195, 209, 179)
+    
+}
+.p1movebutton{
+    background: rgb(220, 235, 203);
+    height: 5rem;
+    width: 10rem;
+    border: 0.4rem black;
+    border-style: dotted;
+    font-size: larger;
+    
+}
+.p1movebutton:hover{
+    background-color: rgb(195, 209, 179)
+    
+}
+
+
+#gameboard{
+    width: 90rem;
+}
+#messagearea{
+    text-align: center;
+    width: 20rem;
+    height: 25rem;
+}
+
+#startaxis{
+    
+    display: flex;
+    margin-left: 6rem;
+    height:12rem;
+    width: 95rem;
+}
+#bankspace{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+   
+    margin-left: 2rem;
+    text-align: center;
+    height: 13rem;
+    width:16.5rem;
+
+    border: solid black;
+}
+#gospace{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    height: 12rem;
+    width:12rem;
+
+    border: solid black;
+}
+#space31{
+    color: aliceblue;
+    background-color:blue;
+    height: 12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space30{
+    height: 12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#luxurytax{
+    height:12rem;
+    width:8rem;
+}
+#space29{
+    color: white;
+    text-align: center;
+    background-color:blue;
+    height: 12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space28{
+    color: white;
+    text-align: center;
+    background-color:green;
+    height: 12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space27{
+    color: white;
+    text-align: center;
+    background-color:green;
+    height: 12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space26{
+    height: 12rem;
+    width:8rem;
+
+    border: solid black;
+}
+
+#space25{
+    color: white;
+    text-align: center;
+    background-color:green;
+    height: 12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space24{
+    color: black;
+    height: 12rem;
+    width:12rem;
+
+    border: solid black;
+}
+
+
+
+
+#axisone{
+   
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6rem;
+    height:8rem;
+    width: 80rem;
+}
+#space1{
+    text-align: center;
+    color: aliceblue;
+    height: 8rem;
+    width:12rem;
+    border: solid black;
+    border-top: none;
+}
+.space1color{
+    background-color: brown;
+}
+#space23{
+    color: black;
+    text-align: center;
+    background-color:yellow;
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+
+#axistwo{
+   
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6rem;
+    height:8rem;
+    width: 80rem;
+}
+#space2{
+    text-align: center;
+    height: 8rem;
+    width:12rem;
+    border: solid black;
+}
+#space22{
+    color: black;
+    text-align: center;
+    background-color:yellow;
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+
+#axisthree{
+    
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6rem;
+    height:8rem;
+    width: 80rem;
+}
+#space3{
+    text-align: center;
+    color: aliceblue;
+    height: 8rem;
+    width:12rem;
+    border: solid black;
+
+}
+.space3color{
+    background-color: brown;
+}
+#space21{
+    color: black;
+    text-align: center;
+    background-color:yellow;
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+
+}
+
+#axisfour{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6rem;
+    height:8rem;
+    width: 80rem;
+}
+
+#space4{
+    color: white;
+    text-align: center;
+    background-color: lightskyblue;
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+
+#space20{
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+#chance{
+    height: 8rem;
+    width:11.3rem;  
+}
+
+
+#axisfive{
+  
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6rem;
+    height:8rem;
+    width: 80rem;
+}
+#space5{
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+#space19{
+    color: white;
+    text-align: center;
+    background-color: red;
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+
+#axissix{
+    
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6rem;
+    height:8rem;
+    width: 80rem;
+}
+#space6{
+    color: white;
+    text-align: center;
+    background-color: lightskyblue;
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+#space18{
+    color: white;
+    text-align: center;
+    background-color:red;
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+#axisseven{
+   
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6rem;
+    height:8rem;
+    width: 80rem;
+}
+#space7{
+    color: white;
+    text-align: center;
+    background-color: lightskyblue;
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+#space17{
+    color: white;
+    text-align: center;
+    background-color:red;
+    height: 8rem;
+    width:12rem;
+
+    border: solid black;
+}
+#axiseight{
+   
+    display: flex;
+    margin-left: 6rem;
+    height:12rem;
+    width: 141.5rem;
+}
+#space8{
+    text-align: center;
+    height: 12rem;
+    width:12rem;
+
+    border: solid black;
+}
+#space9{
+    color: white;
+    text-align: center;
+    background-color:rgb(247, 86, 166);
+    height:12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space10{
+    color: white;
+    text-align: center;
+    background-color:rgb(247, 86, 166);
+    height:12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space11{
+    color: white;
+    text-align: center;
+    background-color:rgb(247, 86, 166);
+    height:12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space12{
+    text-align: center;
+    height:12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space13{
+    color: white;
+    text-align: center;
+    background-color:orange;
+    height:12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space14{
+    color: white;
+    text-align: center;
+    background-color:orange;
+    height:12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space15{
+    color: white;
+    text-align: center;
+    background-color:orange;
+    height:12rem;
+    width:8rem;
+
+    border: solid black;
+}
+#space16{
+    height: 12rem;
+    width:12rem;
+
+    border: solid black;
+}
+#playerproperties2{
+    padding-top: 1rem;
+    font-size: x-large;
+    font-weight: 500;
+    margin-left: 1rem;
+    text-align: center;
+    height: 18rem;
+    width:32rem;
+
+    border: solid black;
+}
+#playerproperties1{
+    padding-top: 1rem;
+    font-size: x-large;
+    font-weight: 500;
+    margin-left: 1rem;
+    text-align: center;
+    height: 18rem;
+    width:32rem;
+
+    border: solid black;
+}
+
